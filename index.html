@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bryderk Nwe Edition | Titan Store</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <a class="brand" href="../index.html">Titan Store</a>
+        <p class="tagline">Bateria Bryderk New Edition</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-content">
+        <div>
+          <span class="eyebrow">Producto destacado</span>
+          <h1>Bryderk New Edition</h1>
+          <p>Bateria de Litio Bryderk con células FEB de última generación y ANT BMS inteligente, Ideal para motocicletas eléctricas y otros vehiculos de alto rendimiento. Calidad premium y soport TOPMAQ</p>
+          <div class="action-group">
+            <button class="button primary" id="buyNowBtn" type="button">Comprar ahora</button>
+            <a class="button secondary" href="https://ernedxprogramer.github.io/Titan-Store/.">Volver a la página principal</a>
+          </div>
+          <div class="features" style="margin-top: 2.5rem;">
+          </div>
+        </div>
+        <div class="product-image image-switcher">
+          <img id="bikeImage" src="img/bryderknewedition.png" alt="ANDES 600 Pro" />
+        </div>
+      </div>
+    </section>
+
+    <section class="catalogue container" id="productos">
+      <div class="section-header">
+        <div>
+          <h2>Características</h2>
+          <p>Conoce las características de Bryderk New Edition</p>
+        </div>
+      </div>
+
+      <div class="features">
+        <article>
+          <h3>Especificaciones Electricas</h3>
+          <p>Voltaje Nominal: 72V
+          <p> Capacidad Nominal: 45 Ah (3240 Wh)
+          <p> Células: FEB New Lithium Cells
+          <p> Rango de Voltaje: 60V-80V
+          <p> Carga Maxima: 20 A
+          <p> Descarga Continua Máxima: 100 A
+          <p> Descarga de Pulso Máxima: 250 A (3 segundos)
+          </p>
+        </article>
+
+        <article>
+          <h3>Sistema de Géstion (BMS)</h3>
+          <p> Tipo de BMS: ANT Intelligent BMS
+          <p> Comunicaciones: Bluetooth (App móvil)
+          <p> Protecciones: Sobrevoltaje, Subvoltaje, Sobrecorriente, Cortocircuito, Sobretemperatura
+          </p>
+        </article>
+        
+        <article>
+          <h3>Dimensiones y Ambiente</h3>
+          <p> Dimensiones:: 280mm x 175mm x 190mm (5mm)
+          <p> Peso Aproximado 12.5kg
+          <p> Rango Temperatura Carga: 0 Grados Cellsius to 45 Grados Cellsius  
+          <p> Rango Temperatura Descarga: -20 Grados Cellsius to 60 Grados Cellsius
+          <p> Clasificación IP: IP65 (Resistente al agua y polvo)
+          <p> Certificaciones: CE, RoHS, UN38.3
+        </article>
+          
+      </div>
+    </section>
+
+  </main>
+
+  <div class="modal-overlay" id="buyModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="buyModalTitle">
+      <button class="modal-close" id="closeModalBtn" type="button" aria-label="Cerrar">×</button>
+      <h2 id="buyModalTitle">Completa tu pedido</h2>
+      <p class="modal-subtitle">Enviaremos tus datos directamente a WhatsApp para coordinar el envío.</p>
+      <form id="buyForm" class="buy-form">
+        <label>
+          Nombre completo
+          <input type="text" name="nombre" placeholder="Tu nombre" required />
+        </label>
+        <label>
+          Teléfono de referencia para entrega
+          <input type="tel" name="telefono" placeholder="+1 702 305 0730" required />
+        </label>
+        <label>
+          Dirección de entrega
+          <textarea name="direccion" rows="3" placeholder="Ciudad, estado, calle y número" required></textarea>
+        </label>
+        <label>
+          Punto de referencia
+          <input type="text" name="referencia" placeholder="Ej. Cerca del parque central" required />
+        </label>
+
+        <fieldset class="shipping-options">
+          <legend>Tipo de envío</legend>
+          <label class="shipping-option">
+            <input type="radio" name="envio" value="Marítimo" checked />
+            <span>Marítimo</span>
+          </label>
+          <label class="shipping-option">
+            <input type="radio" name="envio" value="Aéreo" />
+            <span>Aéreo</span>
+          </label>
+          <label class="shipping-option">
+            <input type="radio" name="envio" value="Express" />
+            <span>Express</span>
+          </label>
+        </fieldset>
+
+        <button class="button primary" type="submit">Enviar pedido</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-copy"><strong>TiendaPlus</strong> © 2026. Todos los derechos reservados.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function(){
+      const modal = document.getElementById('buyModal');
+      const openBtn = document.getElementById('buyNowBtn');
+      const closeBtn = document.getElementById('closeModalBtn');
+      const form = document.getElementById('buyForm');
+      const whatsappNumber = '17023050730';
+
+      const openModal = () => {
+        if (!modal) return;
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+      };
+
+      const closeModal = () => {
+        if (!modal) return;
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      };
+
+      openBtn?.addEventListener('click', openModal);
+      closeBtn?.addEventListener('click', closeModal);
+      modal?.addEventListener('click', (event) => {
+        if (event.target === modal) closeModal();
+      });
+
+      form?.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const data = new FormData(form);
+        const nombre = data.get('nombre')?.toString().trim() || 'Sin nombre';
+        const telefono = data.get('telefono')?.toString().trim() || 'Sin teléfono';
+        const direccion = data.get('direccion')?.toString().trim() || 'Sin dirección';
+        const referencia = data.get('referencia')?.toString().trim() || 'Sin referencia';
+        const envio = data.get('envio')?.toString() || 'Marítimo';
+
+        const message = [
+          'Pedido ANDES 600 Pro',
+          `Nombre: ${nombre}`,
+          `Teléfono de referencia: ${telefono}`,
+          `Dirección: ${direccion}`,
+          `Punto de referencia: ${referencia}`,
+          `Tipo de envío: ${envio}`
+        ].join('%0A');
+
+        window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank', 'noopener,noreferrer');
+        form.reset();
+        closeModal();
+      });
+    })();
+  </script>
+</body>
+</html>
